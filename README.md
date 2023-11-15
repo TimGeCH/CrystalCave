@@ -2,40 +2,40 @@
 
 ## Overview
 
-Crystal Cave Adventure is a side-scrolling platformer game developed with Godot Engine. Dive into the depths of the Crystal Cave with two challenging levels filled with treacherous terrain, a variety of enemies, and shiny coins to collect.
-
-## Features
-
-- **Two Distinct Levels**: Explore diverse landscapes, each with its unique challenges and aesthetics.
-- **Collect to Progress**: Gather various elements throughout the levels to unlock the path forward.
-- **Diverse Enemies**: Encounter different enemies, each with their own behaviors and patterns.
-- **Varied Terrain**: Navigate through multiple terrains that will test your platforming skills.
-- **Scoring System**: Rack up points by collecting coins scattered across each level.
+Embark on an adventure through the Crystal Cave, a Godot-developed side-scrolling platformer game with a focus on collection and progression. Face off against various enemies and navigate through different terrains to collect coins and achieve high scores.
 
 ## Gameplay
 
-Embark on an adventure through the Crystal Cave, where each level is designed with unique obstacles and enemies. The goal is to collect key elements that allow you to complete the level while avoiding enemies and navigating through complex terrains. Accumulate a high score by collecting as many coins as you can along the way.
+Navigate through two intricate levels, each with their own set of challenges and collectibles. 
 
-![Main Menu](/CrystalCave/Images/main menu.png)
+![Main Menu](Images/main%20menu.png)
 
 ## Level Design
 
-Each level in Crystal Cave Adventure offers a different theme and set of challenges:
+The game features two levels, each designed with unique obstacles and enemies:
 
-- **Level 1**: Introduces the player to the game mechanics with a focus on learning how to collect items and avoid enemies.
-- **Level 2**: Ups the ante with more complex terrain and tougher enemies, demanding precise jumps and quick reflexes.
+- **Level 1**: A beginner-friendly introduction to the game mechanics, focusing on basic collection and avoidance tactics.
+- **Level 2**: A more challenging landscape that requires skillful navigation and quick reflexes.
 
-![Game Scene 1](/CrystalCave/Images/game sence.png)
-![Game Scene 2](/CrystalCave/Images/game sence2.png)
+![Game Scene 1](Images/game%20sence.png)
+![Game Scene 2](Images/game%20sence2.png)
 
-## How to Play
+## Collectibles and Scoring
 
-- Use the arrow keys to move the character left or right.
-- Jump with the spacebar to avoid obstacles and enemies.
-- Collect coins for points and items to progress through the level.
-- Reach the end of each level to advance to the next one.
+Collect key items to progress through the levels while gathering coins to boost your score.
+
+## Diverse Enemies and Terrains
+
+From flying creatures to ground-based foes, each enemy type offers a different challenge, just as the varying terrains test your platforming skills.
+
+## How to Score High
+
+Strategize the best routes to collect coins and achieve the highest possible score to top the leaderboard.
 
 ## Built With
 
 - [Godot Engine](https://godotengine.org/) - An open-source game engine suitable for games of all genres.
 
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
