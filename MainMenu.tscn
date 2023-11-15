@@ -1,0 +1,202 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Resources/Font/Adventurer.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Resources/Crystal_Cave_gameplay_style_background.png" type="Texture" id=2]
+[ext_resource path="res://MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Music/button press 1.wav" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 19
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("OptionsMenu:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainMenu:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "show-options"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("OptionsMenu:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainMenu:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = 2.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 321, 186 )
+scale = Vector2( 0.629394, 0.363281 )
+texture = ExtResource( 2 )
+
+[node name="UI" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 9.0
+margin_right = 1.0
+margin_bottom = 9.0
+
+[node name="Label" type="Label" parent="UI"]
+margin_left = 190.0
+margin_top = 132.0
+margin_right = 450.0
+margin_bottom = 178.0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Crystal Cave"
+
+[node name="Menu" type="Control" parent="UI"]
+margin_top = 182.0
+margin_right = 640.0
+margin_bottom = 360.0
+size_flags_vertical = 3
+
+[node name="MainMenu" type="VBoxContainer" parent="UI/Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+custom_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="UI/Menu/MainMenu"]
+margin_left = 291.0
+margin_right = 348.0
+margin_bottom = 26.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "Start"
+
+[node name="OptionButton" type="Button" parent="UI/Menu/MainMenu"]
+margin_left = 281.0
+margin_top = 46.0
+margin_right = 358.0
+margin_bottom = 72.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="UI/Menu/MainMenu"]
+margin_left = 296.0
+margin_top = 92.0
+margin_right = 343.0
+margin_bottom = 118.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "Quit"
+
+[node name="OptionsMenu" type="VBoxContainer" parent="UI/Menu"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+custom_constants/separation = 20
+
+[node name="BGMButton" type="Button" parent="UI/Menu/OptionsMenu"]
+margin_right = 90.0
+margin_bottom = 26.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "BGM : On"
+
+[node name="SFXButton" type="Button" parent="UI/Menu/OptionsMenu"]
+margin_left = 1.0
+margin_top = 46.0
+margin_right = 89.0
+margin_bottom = 72.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "SFX : On"
+
+[node name="Key" type="Button" parent="UI/Menu/OptionsMenu"]
+margin_left = 2.0
+margin_top = 92.0
+margin_right = 87.0
+margin_bottom = 118.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "Controls"
+
+[node name="BackButton" type="Button" parent="UI/Menu/OptionsMenu"]
+margin_left = 18.0
+margin_top = 138.0
+margin_right = 72.0
+margin_bottom = 164.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "Back"
+
+[node name="Transtions" type="AnimationPlayer" parent="UI/Menu"]
+anims/RESET = SubResource( 3 )
+anims/show-options = SubResource( 4 )
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[connection signal="pressed" from="UI/Menu/MainMenu/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="UI/Menu/MainMenu/OptionButton" to="." method="_on_OptionButton_pressed"]
+[connection signal="pressed" from="UI/Menu/MainMenu/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="UI/Menu/OptionsMenu/BGMButton" to="." method="_on_BGMButton_pressed"]
+[connection signal="pressed" from="UI/Menu/OptionsMenu/SFXButton" to="." method="_on_SFXButton_pressed"]
+[connection signal="pressed" from="UI/Menu/OptionsMenu/Key" to="." method="_on_Key_pressed"]
+[connection signal="pressed" from="UI/Menu/OptionsMenu/BackButton" to="." method="_on_BackButton_pressed"]

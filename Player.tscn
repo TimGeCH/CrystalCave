@@ -1,0 +1,120 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Run4.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Run2.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Run0.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Jump0.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Run1.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Run3.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Fall0.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Run5.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Idle0.png" type="Texture" id=9]
+[ext_resource path="res://Player.gd" type="Script" id=10]
+[ext_resource path="res://boxes/HurtBox.tscn" type="PackedScene" id=11]
+[ext_resource path="res://boxes/Hitbox.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Resources/Music/jump.wav" type="AudioStream" id=13]
+[ext_resource path="res://Resources/Music/Edeadsound2.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Fire1.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Fire2.png" type="Texture" id=16]
+[ext_resource path="res://Resources/Sprites/Sprites/Dag/Fire0.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": false,
+"name": "fire",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 13.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 16.0
+height = 28.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 20, 5 )
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 12.0
+height = 22.0
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 2, 2 )
+collision_layer = 2
+collision_mask = 17
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="player" type="AnimatedSprite" parent="."]
+position = Vector2( -1, 1 )
+frames = SubResource( 1 )
+animation = "fire"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 4 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotating = true
+current = true
+limit_left = 32
+limit_right = 6784
+limit_bottom = 700
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpRequestTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Hitbox" parent="." instance=ExtResource( 12 )]
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( -1, 30 )
+shape = SubResource( 3 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 11 )]
+collision_layer = 8
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( 0, 1 )
+shape = SubResource( 4 )
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "SFX"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[connection signal="hit" from="Hitbox" to="." method="_on_Hitbox_hit"]
+[connection signal="hurt" from="HurtBox" to="." method="_on_HurtBox_hurt"]
+
+[editable path="Hitbox"]
+[editable path="HurtBox"]
