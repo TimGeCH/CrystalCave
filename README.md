@@ -16,7 +16,7 @@ Crystal Cave Adventure is a side-scrolling platformer game developed with Godot 
 
 Embark on an adventure through the Crystal Cave, where each level is designed with unique obstacles and enemies. The goal is to collect key elements that allow you to complete the level while avoiding enemies and navigating through complex terrains. Accumulate a high score by collecting as many coins as you can along the way.
 
-![Main Menu](/CrystalCave/Images/main%20menu.png)
+![Main Menu](/CrystalCave/Images/main menu.png)
 
 ## Level Design
 
